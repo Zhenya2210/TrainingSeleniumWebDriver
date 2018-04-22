@@ -44,17 +44,18 @@ public class TestsYandexMarket {
         driver.findElement(Locators.allFiltersShowSuitable).click();
 
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(Locators.mainObjectsOfPage));
-        assertEquals(driver.findElements(Locators.mainObjectsOfPage).size(), 24, "The number of elements on the page doesn't equal 24"); //проверка кол-ва элементов (должно быть 24)
+        assertEquals(24, driver.findElements(Locators.mainObjectsOfPage).size(),"The number of elements on the page doesn't equal 12"); //проверка кол-ва элементов
 
-        String nameFirstTVFromPage = driver.findElement(Locators.nameFirstTVFromPage).getText();
+        String nameFirstTVFromPage = driver.findElement(Locators.nameOfFirstTVFromPage).getText();
         driver.findElement(Locators.fieldOfSearch).clear();
         driver.findElement(Locators.fieldOfSearch).sendKeys(nameFirstTVFromPage);
         driver.findElement(Locators.buttonSearch).click();
 
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(Locators.nameObjectSearch));
-        assertEquals(driver.findElement(Locators.nameObjectSearch).getText(), nameFirstTVFromPage, "The search did not find the object:" + nameFirstTVFromPage); //проверка названия телевизора
+        assertEquals(nameFirstTVFromPage, driver.findElement(Locators.nameObjectSearch).getText(), "The search didn't find the object:" + nameFirstTVFromPage); //проверка названия телевизора
 
     }
+    
 
     @AfterAll
     public static void tearDown(){

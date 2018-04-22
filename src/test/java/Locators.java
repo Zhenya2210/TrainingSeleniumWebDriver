@@ -11,8 +11,9 @@ public class Locators {
     public static By allFiltersCheckBoxSamsung = By.id("glf-7893318-153061");
     public static By allFiltersShowSuitable = By.linkText("Показать подходящие");
     public static By mainObjectsOfPage = By.className("n-snippet-card2__content");
-    public static By nameObjectSearch = By.className("n-title__text");
-    public static By nameFirstTVFromPage = By.className("n-snippet-card2__content");
+    public static By nameOfFirstTVFromPage = By.className("n-snippet-card2__title");
     public static By fieldOfSearch = By.id("header-search");
     public static By buttonSearch = By.className("search2__button");
+    public static By nameObjectSearch = By.className("title title_size_28 title_bold_yes");
+
 }

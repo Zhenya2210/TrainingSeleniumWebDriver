@@ -1,6 +1,8 @@
 import org.openqa.selenium.By;
 
-public class Locators {
+public class LocatorsTV {
+
+    private LocatorsTV(){}
 
     public static By yandexMarket = By.cssSelector("[data-id='market']");
     public static By electronics = By.linkText("Электроника");
@@ -14,6 +16,6 @@ public class Locators {
     public static By nameOfFirstTVFromPage = By.className("n-snippet-card2__title");
     public static By fieldOfSearch = By.id("header-search");
     public static By buttonSearch = By.className("search2__button");
-    public static By nameObjectSearch = By.className("title title_size_28 title_bold_yes");
+    public static By nameObjectSearch = By.className("n-title__text");
 
 }

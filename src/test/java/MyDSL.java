@@ -38,7 +38,8 @@ public class MyDSL {
         driver.findElement(LocatorsTV.tv).click();
     }
 
-    public static void clickCheckBoxBrandOfTV(By locatorOfBrandTV){
+    public static void clickCheckBoxBrandOfTV(String brandTV){
+        By locatorOfBrandTV = By.xpath("//div[@class='n-filter-block__list-items i-bem']//label[text()=\"" + brandTV + "\"]");
         WebElement checkBoxBrandOfTV = driver.findElement(locatorOfBrandTV);
         executor.executeScript("arguments[0].click()", checkBoxBrandOfTV);
     }
@@ -67,6 +68,15 @@ public class MyDSL {
 
     public static String getNameOfTheFoundObject(){
         return driver.findElement(LocatorsTV.nameObjectSearch).getText();
+    }
+
+    public static void clickButtonShowAllBrandsOfTV(){
+        driver.findElement(LocatorsTV.buttonShowAllBrandsOfTV).click();
+    }
+
+    public static void chooseBrandOfTVFromAll(String brandOfTV){
+        driver.findElement(LocatorsTV.fieldOfSearchBrandTV).sendKeys(brandOfTV);
+
     }
 
     public static void tearDown(){

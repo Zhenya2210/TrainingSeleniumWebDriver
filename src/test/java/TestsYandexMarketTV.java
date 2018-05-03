@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestsYandexMarketTV {
 
-
     @BeforeAll
     public static void setUp(){
        MyDSL.setUp();
@@ -19,10 +18,10 @@ public class TestsYandexMarketTV {
     @Test
     public void filtersAndSearchTV() throws InterruptedException {
         MyDSL.showAllFiltersTV();
-        MyDSL.enterMinPriceTV("20000");
 
-        MyDSL.clickCheckBoxBrandOfTV(LocatorsTV.allFiltersCheckBoxLG);
-        MyDSL.clickCheckBoxBrandOfTV(LocatorsTV.allFiltersCheckBoxSamsung);
+        MyDSL.enterMinPriceTV("20000");
+        MyDSL.clickCheckBoxBrandOfTV("LG");
+        MyDSL.clickCheckBoxBrandOfTV("Samsung");
 
         MyDSL.showSuitableTV();
 
@@ -45,7 +44,5 @@ public class TestsYandexMarketTV {
     public static void tearDown(){
        MyDSL.tearDown();
     }
-
-
 
 }

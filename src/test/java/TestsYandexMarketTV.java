@@ -1,4 +1,8 @@
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,7 +20,7 @@ public class TestsYandexMarketTV {
     }
 
     @Test
-    public void filtersAndSearchTV() throws InterruptedException {
+    public void filtersAndSearchTV(){
         MyDSL.showAllFiltersTV();
 
         MyDSL.enterMinPriceTV("20000");
@@ -39,6 +43,19 @@ public class TestsYandexMarketTV {
         assertEquals(nameFirstTVFromPage, nameOfTheFoundObject, "The search didn't find the object:" + nameFirstTVFromPage); //проверка названия телевизора
 
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"S", "Sa", "LG"})
+    public void filterBrandOfTV(String brandOrPartOfWord){
+        MyDSL.showAllFiltersTV();
+        MyDSL.clickButtonShowAllBrandsOfTV();
+        MyDSL.chooseBrandOfTVFromAll(brandOrPartOfWord);
+        Set<String>expectedSetOfSelectedBrands = MyDSL.getSetOfSelectedBrands();
+        MyDSL.showSuitableTV();
+        Set<String>actualSetOfSelectedBrands = MyDSL.getActualSetOfSelectedBrands();
+        assertEquals(expectedSetOfSelectedBrands, actualSetOfSelectedBrands, "Selected filters were incorrectly applied");
+    }
+
 
     @AfterAll
     public static void tearDown(){

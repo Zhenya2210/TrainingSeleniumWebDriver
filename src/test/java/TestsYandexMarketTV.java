@@ -32,7 +32,7 @@ public class TestsYandexMarketTV {
         MyDSL.waitUntilAllTVAreLoaded();
         int quantityOfTVOnPage = MyDSL.getQuantityOfTVOnPage();
 
-        assertEquals(48, quantityOfTVOnPage,"The number of elements on the page doesn't equal 48"); //проверка кол-ва элементов
+        assertEquals(48, quantityOfTVOnPage,"The number of elements on the page doesn't equal 48");
 
         String nameFirstTVFromPage = MyDSL.getFirstNameTVFromPage();
 

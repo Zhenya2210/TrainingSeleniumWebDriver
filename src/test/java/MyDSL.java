@@ -111,11 +111,11 @@ public class MyDSL {
     public static Set<String> getActualSetOfSelectedBrands(){
         int quantityOfActualSelectedBrands = driver.findElements(LocatorsTV.selectedBrandsOnResultPage).size();
         Set<String>resultSetBrands = new HashSet<>();
-        String atributID;
+        String attributeID;
         String selectedBrand;
         for(int i = 1; i <= quantityOfActualSelectedBrands; i++){
-            atributID = driver.findElement(By.xpath("//ul[@class='_2y67xS5HuR']/li[" + i + "]//input[@checked]")).getAttribute("id");
-            selectedBrand = driver.findElement(By.xpath("//ul[@class='_2y67xS5HuR']/li//label[@for='" + atributID + "']//span")).getText();
+            attributeID = driver.findElement(By.xpath("//ul[@class='_2y67xS5HuR']/li[" + i + "]//input[@checked]")).getAttribute("id");
+            selectedBrand = driver.findElement(By.xpath("//ul[@class='_2y67xS5HuR']/li//label[@for='" + attributeID + "']//span")).getText();
             resultSetBrands.add(selectedBrand);
         }
         return resultSetBrands;

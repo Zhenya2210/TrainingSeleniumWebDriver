@@ -1,18 +1,17 @@
-package YandexMarketTV;
+package GeneralClassesYndexMarket;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class YandexMarketTV {
+public class FirstSteps {
 
     private By yandexMarket = By.cssSelector("[data-id='market']");
     private By electronics = By.linkText("Электроника");
     private By tv = By.linkText("Телевизоры");
 
-
     private WebDriver driver;
 
-    public YandexMarketTV(WebDriver driver){
+    public FirstSteps(WebDriver driver){
         this.driver = driver;
     }
 

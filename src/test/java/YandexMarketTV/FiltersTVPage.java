@@ -50,14 +50,15 @@ public class FiltersTVPage {
         driver.findElement(buttonShowAllBrandsOfTV).click();
     }
 
-    public void searchByWordAndSelectionRandomBrandsOfTVFromAll(String brandOfTVOrPartOfTheWord){
+    public void searchByWordTVBrandsFromAll(String brandOfTVOrPartOfTheWord){
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(fieldOfSearchBrandTV));
-
         driver.findElement(fieldOfSearchBrandTV).sendKeys(brandOfTVOrPartOfTheWord);
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='n-filter-block__list-items-wrap']//div[@class='n-filter-block__item i-bem n-filter-block__item_js_inited'][last()]//label[starts-with(text(),'" + brandOfTVOrPartOfTheWord + "')]")));
+    }
+
+    public void selectionOfRandomTVBrandsFromTheFound(){
 
         int quantityOfFoundBrands = driver.findElements(foundBrandsOfTV).size();
-
         setOfSelectedBrands.clear();
         By locatorOfBrandTV;
         WebElement checkBoxBrandOfTV;

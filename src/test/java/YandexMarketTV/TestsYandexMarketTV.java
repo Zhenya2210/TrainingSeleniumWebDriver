@@ -1,5 +1,8 @@
 package YandexMarketTV;
 
+import GeneralClassesYndexMarket.FirstSteps;
+import GeneralClassesYndexMarket.ObjectOfYandexMarketPage;
+import GeneralClassesYndexMarket.SearchOnTheYandexMarket;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -30,7 +33,7 @@ public class TestsYandexMarketTV {
 
     @BeforeEach
     public void openYandexMarketTV(){
-        YandexMarketTV yandexMarketTV = new YandexMarketTV(driver);
+        FirstSteps yandexMarketTV = new FirstSteps(driver);
         yandexMarketTV.openYandexMarketTV();
     }
 
@@ -48,8 +51,7 @@ public class TestsYandexMarketTV {
         assertEquals(48, quantityOfTVOnPage,"The number of elements on the page doesn't equal 48");
         String nameFirstTVFromPage = resultListOfTVsPage.getFirstNameTVFromPage();
         SearchOnTheYandexMarket searchTVOnTheYandexMarket = new SearchOnTheYandexMarket(driver);
-        searchTVOnTheYandexMarket.searchOnYandexMarket(nameFirstTVFromPage);
-        TVPage foundTV = new TVPage(driver);
+        ObjectOfYandexMarketPage foundTV = searchTVOnTheYandexMarket.searchOnYandexMarket(nameFirstTVFromPage);
         String nameOfTheFoundObject = foundTV.getNameOfTheFoundObject();
         assertEquals(nameFirstTVFromPage, nameOfTheFoundObject, "The search didn't find the object:" + nameFirstTVFromPage); //проверка названия телевизора
 
@@ -62,7 +64,8 @@ public class TestsYandexMarketTV {
         defaultListOfTVsPage.showAllFiltersTV();
         FiltersTVPage filtersTV = new FiltersTVPage(driver, webDriverWait, executor);
         filtersTV.clickButtonShowAllBrandsOfTV();
-        filtersTV.searchByWordAndSelectionRandomBrandsOfTVFromAll(brandOrPartOfWord);
+        filtersTV.searchByWordTVBrandsFromAll(brandOrPartOfWord);
+        filtersTV.selectionOfRandomTVBrandsFromTheFound();
         Set<String>expectedSetOfSelectedBrands = filtersTV.getSetOfSelectedBrands();
         ListOfTVsPage resultListOfTVsPage = filtersTV.showSuitableTV();
         Set<String>actualSetOfSelectedBrands = resultListOfTVsPage.getActualSetOfSelectedBrands();

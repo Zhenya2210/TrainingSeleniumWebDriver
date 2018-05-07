@@ -39,9 +39,8 @@ public class TestsYandexMarketTV {
 
     @Test
     public void filtersAndSearchTV(){
-        ListOfTVsPage defaultListOfTVsPage = new ListOfTVsPage(driver, webDriverWait);
-        defaultListOfTVsPage.showAllFiltersTV();
-        FiltersTVPage filtersTV = new FiltersTVPage(driver, webDriverWait, executor);
+        ListOfTVsPage defaultListOfTVsPage = new ListOfTVsPage(driver, webDriverWait, executor);
+        FiltersTVPage filtersTV = defaultListOfTVsPage.showAllFiltersTV();
         filtersTV.enterMinPriceTV("20000");
         filtersTV.clickCheckBoxBrandOfTV("LG");
         filtersTV.clickCheckBoxBrandOfTV("Samsung");
@@ -60,9 +59,8 @@ public class TestsYandexMarketTV {
     @ParameterizedTest
     @ValueSource(strings = {"S", "Sa", "LG"})
     public void filterBrandOfTV(String brandOrPartOfWord){
-        ListOfTVsPage defaultListOfTVsPage = new ListOfTVsPage(driver, webDriverWait);
-        defaultListOfTVsPage.showAllFiltersTV();
-        FiltersTVPage filtersTV = new FiltersTVPage(driver, webDriverWait, executor);
+        ListOfTVsPage defaultListOfTVsPage = new ListOfTVsPage(driver, webDriverWait, executor);
+        FiltersTVPage filtersTV = defaultListOfTVsPage.showAllFiltersTV();
         filtersTV.clickButtonShowAllBrandsOfTV();
         filtersTV.searchByWordTVBrandsFromAll(brandOrPartOfWord);
         filtersTV.selectionOfRandomTVBrandsFromTheFound();

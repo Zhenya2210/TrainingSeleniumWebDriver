@@ -1,6 +1,7 @@
 package YandexMarketTV;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,15 +21,19 @@ public class ListOfTVsPage {
 
     private WebDriver driver;
     private WebDriverWait webDriverWait;
+    private JavascriptExecutor executor;
 
-    public ListOfTVsPage(WebDriver driver, WebDriverWait webDriverWait) {
+
+    public ListOfTVsPage(WebDriver driver, WebDriverWait webDriverWait, JavascriptExecutor executor) {
         this.driver = driver;
         this.webDriverWait = webDriverWait;
+        this.executor = executor;
     }
 
 
-    public void showAllFiltersTV(){
+    public FiltersTVPage showAllFiltersTV(){
         driver.findElement(allFilters).click();
+        return new FiltersTVPage(driver, webDriverWait, executor);
     }
 
     public void waitUntilAllTVAreLoaded(){

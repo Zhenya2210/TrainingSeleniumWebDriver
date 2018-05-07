@@ -42,7 +42,7 @@ public class FiltersTVPage {
 
     public ListOfTVsPage showSuitableTV(){
         driver.findElement(allFiltersShowSuitable).click();
-        return new ListOfTVsPage(driver, webDriverWait);
+        return new ListOfTVsPage(driver, webDriverWait, executor);
     }
 
     public void clickButtonShowAllBrandsOfTV(){

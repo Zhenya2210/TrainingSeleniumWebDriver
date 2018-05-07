@@ -3,7 +3,7 @@ package GeneralClassesYndexMarket;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class FirstSteps {
+public class YandexMarketStart {
 
     private By yandexMarket = By.cssSelector("[data-id='market']");
     private By electronics = By.linkText("Электроника");
@@ -11,7 +11,7 @@ public class FirstSteps {
 
     private WebDriver driver;
 
-    public FirstSteps(WebDriver driver){
+    public YandexMarketStart(WebDriver driver){
         this.driver = driver;
     }
 

@@ -1,6 +1,6 @@
 package YandexMarketTV;
 
-import GeneralClassesYndexMarket.FirstSteps;
+import GeneralClassesYndexMarket.YandexMarketStart;
 import GeneralClassesYndexMarket.ObjectOfYandexMarketPage;
 import GeneralClassesYndexMarket.SearchOnTheYandexMarket;
 import org.junit.jupiter.api.*;
@@ -33,7 +33,7 @@ public class TestsYandexMarketTV {
 
     @BeforeEach
     public void openYandexMarketTV(){
-        FirstSteps yandexMarketTV = new FirstSteps(driver);
+        YandexMarketStart yandexMarketTV = new YandexMarketStart(driver);
         yandexMarketTV.openYandexMarketTV();
     }
 
